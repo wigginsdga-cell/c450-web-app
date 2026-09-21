@@ -6,7 +6,7 @@
 
 ## 1. Approach Summary
 
-CyberGuide will be built by adapting the existing C450 web application rather than replacing it. The current Vue/Vue Router/Papa Parse starter already provides the basic route structure, shared CSV loading, collection cards, and detail routing. The plan is to keep that structure and change the data model, content, interactions, and styling so the application meets the CyberGuide specification.
+CyberGuide will be built by adapting the existing C450 web application rather than replacing it. The current Vue/Vue Router/Papa Parse starter already provides the basic route structure, shared CSV loading, collection cards, and detail routing. I plan to keep that structure and adapt the data model, content, interactions, and styling so the application stays aligned with the CyberGuide specification.
 
 The work will move in a simple sequence:
 
