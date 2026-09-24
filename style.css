@@ -91,7 +91,7 @@ li + li { margin-top: 0.5rem; }
 .alert-warning { border-left: 4px solid var(--cg-warning); }
 
 /* Keyboard focus stays visible on all backgrounds in the palette. */
-:where(a, button, input, select, [tabindex]):focus-visible {
+:is(a, button, input, select, [tabindex]):focus-visible {
   outline: 3px solid var(--cg-primary);
   outline-offset: 3px;
   box-shadow: none;
