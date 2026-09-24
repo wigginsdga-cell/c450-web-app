@@ -118,6 +118,8 @@ If browser storage is unavailable, the rest of the application will continue to 
 
 ## 6. Dependencies and Assumptions
 
+- Visual work follows [Design System v1.0](design-system.md).
+
 - Vue 3, Vue Router, Bootstrap, Bootstrap Icons, and Papa Parse continue to load from their current CDNs.
 - GitHub Pages remains the deployment target.
 - Topic guidance is educational and comes from identified trusted sources.

@@ -197,7 +197,7 @@ These are planned pass/fail checks for the specified application. They are not a
 - **Compliance/Legal:** Clearly describe the educational scope; identify content sources; do not claim diagnosis, legal advice, live threat protection, or guaranteed remediation. No formal compliance certification is claimed.
 - **Budget/Timeline:** Keep the first version within the existing course starter and static-hosting approach, without a paid backend or external service dependency. The Specification, Research, and Prototype assignment is due September 14, 2026.
 - **Architecture:** Keep the starter's Vue, Vue Router, Papa Parse, Bootstrap, CSV data, and GitHub Pages approach for the course application.
-- **Style and theme:** Calm, professional, trustworthy, and easy to scan. Use a light background, dark navy or charcoal text, blue primary actions, and restrained amber/red warnings. Use short headings, simple cards, and minimal decoration. Immediate actions should be visually separated from warning signs and prevention information.
+- **Style and theme:** Follow [Design System v1.0](design-system.md). Calm, professional, trustworthy, and easy to scan. Use a light background, dark navy or charcoal text, blue primary actions, and restrained amber/red warnings. Use short headings, simple cards, and minimal decoration. Immediate actions should be visually separated from warning signs and prevention information.
 
 ---
 
