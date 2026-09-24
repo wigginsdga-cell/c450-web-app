@@ -2,7 +2,7 @@
 
 Date: September 24, 2026. Built with Codex from the existing specification, plan, and task list. These are implementation observations and checks performed by Codex, not invented student reflections or tester feedback. The owner should review the app and add their own experience before submission.
 
-Each task follows the existing no-build Vue/Bootstrap structure and Design System v1.0. Tasks are completed in order; the preceding completed tasks form the dependency check. Separate local commits preserve each step. GitHub publication is pending because the connected integration rejected writes.
+Each task follows the existing no-build Vue/Bootstrap structure and Design System v1.0. Tasks are completed in order; the preceding completed tasks form the dependency check. Separate task commits preserve each step. The app is now published to GitHub Pages. Entries below retain what was known at each build step; the final browser-review entry closes the earlier pending checks.
 
 ## T01 — replace starter data with five sourced topics
 
@@ -119,3 +119,18 @@ Preflight: all requirements reviewed; T20/T21/T24/T25/T26 browser checks remain 
 ### T20 refinement — Focus rule priority
 
 Final source review adjusted the focus selector so it can override Bootstrap control focus rules. The intended 3px outline now has adequate selector priority for links, buttons, inputs, and selects. This is a code correction; the keyboard/visual task remains open until checked in a browser.
+
+## Final published browser review — September 24, 2026
+
+Preflight: the front-end implementation and local DOM checks were complete; T20, T21, T24, T25, and T26 awaited browser evidence. The signed-in GitHub session published the task commits and documents, and GitHub Pages reported a successful deployment.
+
+- **T20/T26:** Keyboard checks reached and activated navigation, Home actions, search, category, Clear, View guidance, Pin/Unpin, and source links. Focus outlines measured 3px and were visible. The skip link focused main content while preserving the route.
+- **T21/T26:** The actual app ran inside a 375px-wide browser frame. Home, Security Topics, a full Weak Passwords guide, and About showed no horizontal overflow. Screenshots confirmed wrapped navigation, stacked content, and readable source URLs. This checks a narrow browser viewport, not a physical phone.
+- **T24:** Continuous typing, editing in the middle of a query, capitalization, combined filters, Clear, no-results recovery, and special-character text all passed in the published app.
+- **T25:** All five guides displayed their own sections and sources. Phishing pin state survived a reload and could be removed. Its FTC source opened in another tab while CyberGuide stayed open.
+- **T23:** An unknown topic recovered to the collection. A separate fixture using the real app code with an unavailable CSV displayed a useful error and recovered with Return Home. The production CSV stayed intact.
+- **T09 refinement:** Corrected the count label so one result reads “1 topic.”
+
+The browser did not expose a viewport-resize control. A small `browser-checks.html` page provides a repeatable 375px frame, plus a separate missing-data fixture, using the existing app code. These test pages are not part of the product navigation. All 27 tasks are now checked off; the methods and limits are recorded in `test-results.md`.
+
+Lesson for the next build: keep functional checks and visual browser checks distinct, and record what each actually proves. A local DOM pass helped catch data and interaction issues, while the published browser review verified keyboard focus, real typing, new tabs, and layout. The owner still needs to add their own observations and complete the Canvas submission.

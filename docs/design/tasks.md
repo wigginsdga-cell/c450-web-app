@@ -134,13 +134,13 @@ Tasks are ordered so each stage builds on the previous one. A task is complete o
 - **Done when:** Main views look like one application rather than a partly customized starter.
 
 ### T20 — Verify Labels, Alt Text, Keyboard Use, and Focus
-- [ ] **Requirements:** R9, R22
+- [x] **Requirements:** R9, R22
 - **Files:** components and `style.css`
 - **Work:** Check navigation, Home blocks, search, category, Clear, View guidance, Pin, and source controls using the keyboard. Add visible focus styling where needed and confirm optional images have useful alt text.
 - **Done when:** Every main control can be reached/used by keyboard and the focused control is visually obvious.
 
 ### T21 — Verify Phone-Width Layout
-- [ ] **Requirements:** R25
+- [x] **Requirements:** R25
 - **Files:** `style.css`, components as needed
 - **Work:** Inspect Home, Security Topics, detail, and About at 375px width and correct clipping/overlap/horizontal-scroll problems.
 - **Done when:** Core actions remain usable without horizontal page scrolling.
@@ -158,17 +158,17 @@ Tasks are ordered so each stage builds on the previous one. A task is complete o
 - **Done when:** Each acceptance condition passes.
 
 ### T24 — Run Search / Filter / Safety Checks
-- [ ] **Requirements:** R11-R13, R23-R24
+- [x] **Requirements:** R11-R13, R23-R24
 - **Work:** Test name/description/category terms, capitalization, combined filters, Clear, continuous editing, and special characters.
 - **Done when:** All search/filter/safety acceptance conditions pass.
 
 ### T25 — Run Guidance / Pin / Source Checks
-- [ ] **Requirements:** R15-R17, R21
+- [x] **Requirements:** R15-R17, R21
 - **Work:** Verify all guidance sections, pin-reload-unpin behavior, saved-data contents, pinned labels, explanation, and source links.
 - **Done when:** All related acceptance conditions pass.
 
 ### T26 — Run Accessibility and Viewport Checks
-- [ ] **Requirements:** R22, R25
+- [x] **Requirements:** R22, R25
 - **Work:** Complete keyboard-only and 375px viewport checks.
 - **Done when:** Controls remain operable, focus is visible, and core pages do not clip or require horizontal scrolling.
 

@@ -1,7 +1,9 @@
 # CyberGuide — Test Results and Final Review
 
 **Date:** September 24, 2026  
-**Method:** Codex used the actual Vue, Vue Router, and Papa Parse application in a local jsdom environment. That checks rendered content and interactions without providing a visual browser. No tester feedback or student reflection was invented.
+**Method:** Codex checked the actual Vue, Vue Router, and Papa Parse application in a local jsdom environment, then tested the published app in a browser. Local tests covered data and storage edge cases; browser interaction and screenshots covered the main user flows, keyboard focus, and layout. No tester feedback or student reflection was invented.
+
+**Published app:** [CyberGuide](https://wigginsdga-cell.github.io/c450-web-app/)
 
 ## Results already checked
 
@@ -22,24 +24,26 @@
 
 A source review found and corrected a skip-link issue: a normal fragment link could change the hash route. Its handler now focuses main content without navigating; the local interaction check passed.
 
-## Browser review still required
+## Published browser review — passed
 
-The cloud browser blocked local app previews. GitHub also rejected writes, so the new build could not be published there for browser testing. T20, T21, T24, T25, and T26 remain unchecked. A full visual/accessibility pass is **not** claimed.
+The build was published through the signed-in GitHub browser session after the connected integration rejected writes. GitHub Pages reported a successful deployment. The following checks completed on September 24, 2026, closing T20, T21, T24, T25, and T26:
 
-Open the app using the README instructions and record the actual result for each check:
+- [x] Home actions opened the specified destinations: View Security Topics and Prevention opened the collection; Phishing and Account Compromise opened their own guides. Navigation and About worked.
+- [x] All five cards and guides displayed their intended content and source, with ordered immediate actions before prevention.
+- [x] Continuous typing of `phishing` kept focus and the caret. Moving into the word, inserting a character, and deleting it retained the expected caret position (R23).
+- [x] Accounts plus `weak` returned Weak Passwords. Clear reset both filters, restored five cards, and focused search. Capitalization and no-results recovery worked (R11-R14).
+- [x] Quotation marks, `&`, and angle brackets remained input text without creating markup (R24).
+- [x] Pinning Phishing showed Pinned on its card, survived reload, and could be removed. The explanation correctly described saving guidance for later (R16-R17).
+- [x] The Phishing source opened the expected FTC URL in a new tab while CyberGuide stayed on the guide. All five rendered source URLs matched their intended articles (R21).
+- [x] Tab, Shift+Tab, Enter, Space, and arrow keys operated the relevant controls. Skip link, navigation, Home actions, search, category, Clear, View guidance, Pin/Unpin, and source links were reachable. Focused controls showed a 3px outline. The skip link focused main content without changing the hash route (R22).
+- [x] Home, Security Topics, a full Weak Passwords guide, and About were inspected at desktop and **375 CSS-pixel viewport width**. Controls remained usable, text and long source URLs wrapped, and no horizontal page overflow was measured (R25).
+- [x] An invalid topic showed Topic not found and recovered to the collection. A separate missing-CSV browser fixture showed the load error; Return Home recovered to Home (R19-R20).
 
-- [ ] On Home, activate View Security Topics, Phishing, Account Compromise, and Prevention. Confirm their exact destinations.
-- [ ] Browse all five cards and guides. Confirm immediate actions appear before prevention and every guide has its intended source.
-- [ ] Type `phishing` continuously. Move the caret into the middle, insert and delete characters, and confirm it stays where expected (R23).
-- [ ] Choose Accounts and search `weak`. Clear both filters. Search an unmatched word and use Clear filters (R11-R14).
-- [ ] Enter quotation marks, `&`, and angle brackets. Confirm they remain plain text (R24).
-- [ ] Pin a guide, return to its card, reload, and unpin it. Confirm the explanation does not promise a fix (R16-R17).
-- [ ] Activate a trusted-source link. Confirm the correct FTC article opens in a new tab while CyberGuide stays open (R21).
-- [ ] Use only Tab, Shift+Tab, Enter, Space, and arrow keys where appropriate. Check skip link, navigation, Home blocks, search, category, Clear, View guidance, Pin/Unpin, and source links. Focus should be visible and should not become trapped (R22).
-- [ ] At desktop width and **375px** width, inspect Home, Security Topics, a full guide, and About. Confirm no clipped text, overlapping controls, or horizontal page scrolling (R25).
-- [ ] Repeat one failed-data check in browser developer tools, then restore the CSV request. Confirm Return Home works (R19).
+The [browser check page](browser-checks.html) embeds the actual app in a 375px-wide frame. Home, collection, and detail measured 360px of content and 360px of scroll width inside the 375px viewport because of the vertical scrollbar; About measured 375px for both. The second frame loads the actual app code from a folder without the CSV, testing a real unavailable-data response without changing the production data.
 
-Mark the remaining tasks complete only after these checks pass. If a check fails, record the issue and refine the related task before committing it.
+Review found one small wording correction: a single search result now reads **1 topic**. The test fixtures are separate from the main app navigation.
+
+These results cover the specified acceptance checks in the available browser. They are not a physical-phone test, a screen-reader audit, or a claim of full WCAG conformance. The owner still needs to review the result against their intention and record their own experience.
 
 ## Owner review notes
 
