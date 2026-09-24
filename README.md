@@ -4,7 +4,9 @@ A small INFO-C450 course app for finding plain-language cybersecurity guidance. 
 
 ## Open the app
 
-Use the VS Code Live Server extension from the course workflow, or run this command in the project folder:
+Open the published app: **[CyberGuide](https://wigginsdga-cell.github.io/c450-web-app/)**.
+
+To work locally, use the VS Code Live Server extension from the course workflow, or run this command in the project folder:
 
 ```sh
 python3 -m http.server 8000
@@ -23,10 +25,13 @@ Then open `http://localhost:8000`. Use a web server because the app loads its to
 - [Plan](docs/design/plan.md)
 - [Task list](docs/design/tasks.md)
 - [Build notes](docs/design/build-log.md)
-- [Final checks and remaining review](docs/design/test-results.md)
+- [Test results and owner review](docs/design/test-results.md)
+- [Browser check fixtures](docs/design/browser-checks.html)
 
 The app keeps the starter's Vue, Vue Router, Bootstrap, and Papa Parse setup. It has no build step, account system, or backend. Pinning stores only topic IDs under `cyberguidePinnedIds` in localStorage. If storage is blocked, pins remain available while the page stays open.
 
 ## Build status
 
-The Week 5 implementation was prepared with Codex. Automated local DOM checks passed for the core interactions, data failures, and storage behavior. Real-browser keyboard, mobile layout, typing, and new-tab checks remain listed in the test results; the owner should complete those before submission. GitHub publication is pending because the connected integration rejected write access.
+The Week 5 front end and design system were prepared with Codex and published to GitHub Pages on September 24, 2026. All 27 implementation tasks are checked off. Local DOM checks covered the core interactions, data failures, and storage behavior. The published app also passed browser checks for keyboard controls, continuous search editing, pin persistence, source links, recovery, and desktop and 375px layouts. See the test results for methods and limits.
+
+Before submitting, the owner should use the app, confirm it matches the original intention, and add their own observations to the review notes. Canvas submission has not been completed by Codex.
