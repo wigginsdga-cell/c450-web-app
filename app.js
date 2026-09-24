@@ -28,6 +28,8 @@ const router = VueRouter.createRouter({
   routes,
 });
 
+const PIN_STORAGE_KEY = 'cyberguidePinnedIds';
+
 const splitList = (value) => String(value || '').split('|').map((item) => item.trim()).filter(Boolean);
 
 const app = Vue.createApp({
@@ -37,6 +39,7 @@ const app = Vue.createApp({
       isLoading: true,
       error: '',
       pinnedIds: [],
+      storageMessage: '',
       isPinned(id) {
         return this.pinnedIds.includes(id);
       },
@@ -46,8 +49,23 @@ const app = Vue.createApp({
         } else {
           this.pinnedIds.push(id);
         }
+        try {
+          localStorage.setItem(PIN_STORAGE_KEY, JSON.stringify(this.pinnedIds));
+          this.storageMessage = '';
+        } catch {
+          this.storageMessage = 'This browser cannot save your pins. They will last only while this page stays open.';
+        }
       },
     });
+
+    try {
+      const saved = JSON.parse(localStorage.getItem(PIN_STORAGE_KEY) || '[]');
+      if (Array.isArray(saved)) {
+        itemsStore.pinnedIds = [...new Set(saved.filter((id) => typeof id === 'string' && id.trim()))];
+      }
+    } catch {
+      itemsStore.storageMessage = 'Saved pins could not be read. You can still browse and pin topics on this page.';
+    }
 
     fetch('items-template.csv')
       .then((response) => {
