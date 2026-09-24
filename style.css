@@ -105,3 +105,12 @@ li + li { margin-top: 0.5rem; }
   background: var(--cg-surface);
 }
 .skip-link:focus { top: 0.5rem; }
+
+.source-link { overflow-wrap: anywhere; }
+.navbar { flex-wrap: wrap; }
+.card-body { min-width: 0; }
+@media (max-width: 575.98px) {
+  .navbar { align-items: flex-start; }
+  .navbar > div { width: 100%; }
+  .card-body.p-4 { padding: 1rem !important; }
+}
