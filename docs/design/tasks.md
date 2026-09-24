@@ -10,19 +10,19 @@ Tasks are ordered so each stage builds on the previous one. A task is complete o
 ## Phase 1 — Data and Model
 
 ### T01 — Replace Starter Data with CyberGuide Topics
-- [ ] **Requirements:** R6, R8, R15, R21
+- [x] **Requirements:** R6, R8, R15, R21
 - **Files:** `items-template.csv`
 - **Work:** Replace the local-business sample records with Phishing, Weak Passwords, Malware, Unsafe Links, and Account Compromise. Add `warning_signs`, `recommended_actions`, `prevention_tips`, `source_name`, and `source_url`. Use `|` between multi-step list items.
 - **Done when:** The CSV contains five unique cybersecurity topics, each has a category and core guidance fields, and each topic has an identified trusted source or is clearly marked as still needing source verification.
 
 ### T02 — Expand the Parsed Topic Model
-- [ ] **Requirements:** R6, R8, R15
+- [x] **Requirements:** R6, R8, R15
 - **Files:** `app.js`
 - **Work:** Extend the Papa Parse mapping for the new CyberGuide fields. Split the three list fields on `|`, trim items, and remove blank list entries.
 - **Done when:** Shared item objects expose all fields required by the collection and detail views and valid CSV data loads without parser errors.
 
 ### T03 — Verify Loading and Data Failure States
-- [ ] **Requirements:** R7, R19
+- [x] **Requirements:** R7, R19
 - **Files:** `app.js`, collection/detail components as needed
 - **Work:** Preserve the loading state and make CSV load/parse errors plain-language and recoverable.
 - **Done when:** Valid data loads normally, delayed loading shows a message, and failed load/parse does not leave a blank page.
@@ -30,13 +30,13 @@ Tasks are ordered so each stage builds on the previous one. A task is complete o
 ## Phase 2 — Saved Topic State
 
 ### T04 — Add Shared Pinned-ID State
-- [ ] **Requirements:** R16, R17
+- [x] **Requirements:** R16, R17
 - **Files:** `app.js`
 - **Work:** Add shared pin/unpin helpers and keep pinned topic IDs in one array/set available to collection and detail components.
 - **Done when:** A topic can be pinned and unpinned from shared state without storing guidance text or personal data.
 
 ### T05 — Add localStorage Persistence and Fallback
-- [ ] **Requirements:** R16, R17
+- [x] **Requirements:** R16, R17
 - **Files:** `app.js`
 - **Work:** Load/save pinned IDs under a CyberGuide-specific storage key. Catch storage failures and keep the app usable with session-only state.
 - **Done when:** Pins survive reload when storage works, unpin removes the ID, and blocked storage does not break navigation or guidance.
@@ -44,19 +44,19 @@ Tasks are ordered so each stage builds on the previous one. A task is complete o
 ## Phase 3 — CyberGuide Identity and Core Views
 
 ### T06 — Update Navbar
-- [ ] **Requirements:** R2
+- [x] **Requirements:** R2
 - **Files:** `components/navbar-component.js`
 - **Work:** Change the starter brand to CyberGuide and rename Items to Security Topics while keeping Home and About.
 - **Done when:** All three required navigation labels are visible and open their correct routes.
 
 ### T07 — Rebuild Home Content Using Existing Landing Component
-- [ ] **Requirements:** R3, R4, R5
+- [x] **Requirements:** R3, R4, R5
 - **Files:** `components/landing-page-component.js`
 - **Work:** Replace starter instructions with a short CyberGuide introduction, View Security Topics CTA, direct Phishing and Account Compromise blocks, and a Prevention browse-topics block.
 - **Done when:** Each block looks actionable and opens the exact destination defined in the specification.
 
 ### T08 — Update About Scope Language
-- [ ] **Requirements:** R18
+- [x] **Requirements:** R18
 - **Files:** `components/about-page-component.js`
 - **Work:** Explain that CyberGuide provides general educational guidance and does not scan, diagnose, or perform live incident response.
 - **Done when:** The service limits are visible in plain language.
@@ -64,37 +64,37 @@ Tasks are ordered so each stage builds on the previous one. A task is complete o
 ## Phase 4 — Security Topics Collection
 
 ### T09 — Adapt Collection Cards to CyberGuide
-- [ ] **Requirements:** R8, R9, R10
+- [x] **Requirements:** R8, R9, R10
 - **Files:** `components/collection-page-component.js`
 - **Work:** Rename Collection to Security Topics, remove the starter Location display, preserve optional image behavior, show name/description/category, and rename View details to View guidance.
 - **Done when:** One usable card appears per topic and each View guidance control opens the correct detail route.
 
 ### T10 — Add Search
-- [ ] **Requirements:** R11, R23, R24
+- [x] **Requirements:** R11, R23, R24
 - **Files:** `components/collection-page-component.js`
 - **Work:** Add a search field that filters name, description, and category case-insensitively using computed JavaScript state.
 - **Done when:** Known terms and capitalization variants return expected topics and continuous typing/editing keeps focus/caret behavior stable.
 
 ### T11 — Add Category Filtering
-- [ ] **Requirements:** R12
+- [x] **Requirements:** R12
 - **Files:** `components/collection-page-component.js`
 - **Work:** Add an All category plus available categories and combine the category condition with active search text.
 - **Done when:** Results satisfy both filters when both are active.
 
 ### T12 — Add Clear and No-Results Recovery
-- [ ] **Requirements:** R13, R14
+- [x] **Requirements:** R13, R14
 - **Files:** `components/collection-page-component.js`
 - **Work:** Add Clear to reset search and category. Show a useful no-results message with a clear recovery action.
 - **Done when:** Clear restores all topics and an unmatched search never leaves an unexplained blank collection.
 
 ### T13 — Show Pinned State on Cards
-- [ ] **Requirements:** R16, R17
+- [x] **Requirements:** R16, R17
 - **Files:** `components/collection-page-component.js`
 - **Work:** Read shared pinned IDs and show a text-labeled saved/pinned state on matching cards.
 - **Done when:** A pin made on the detail page is visible on its collection card and remains understandable without relying on an icon alone.
 
 ### T14 — Verify Search Text Is Text-Safe
-- [ ] **Requirements:** R24
+- [x] **Requirements:** R24
 - **Files:** `components/collection-page-component.js`
 - **Work:** Confirm user search text is never rendered with `v-html`, `innerHTML`, or direct HTML assembly.
 - **Done when:** Quotation marks, ampersands, and angle brackets remain text and do not create markup.
