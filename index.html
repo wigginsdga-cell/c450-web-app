@@ -21,8 +21,8 @@
   </head>
 
   <body class="bg-light">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
     <div id="app" class="d-flex flex-column min-vh-100">
+      <a class="skip-link" href="#main-content" @click.prevent="focusMain">Skip to main content</a>
       <navbar-component></navbar-component>
       <main id="main-content" tabindex="-1" class="flex-grow-1">
         <router-view></router-view>

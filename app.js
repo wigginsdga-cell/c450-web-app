@@ -118,7 +118,11 @@ const app = Vue.createApp({
 
     Vue.provide('itemsStore', itemsStore);
 
-    return {};
+    return {
+      focusMain() {
+        document.getElementById('main-content')?.focus();
+      },
+    };
   },
 });
 
