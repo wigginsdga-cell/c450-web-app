@@ -70,6 +70,7 @@ export default {
             <div class="card-body d-flex flex-column">
               <p class="small text-muted mb-2">{{ item.category }}</p>
               <h2 class="h5 card-title">{{ item.name }}</h2>
+              <p v-if="itemsStore.isPinned(item.id)" class="small fw-bold">Pinned</p>
               <p class="card-text flex-grow-1">{{ item.description }}</p>
               <router-link :to="'/items/' + item.id" class="btn btn-outline-primary">
                 View guidance<span class="visually-hidden"> for {{ item.name }}</span>
