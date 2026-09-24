@@ -3,13 +3,17 @@ export default {
   setup() {
     const itemsStore = Vue.inject('itemsStore');
     const searchText = Vue.ref('');
+    const selectedCategory = Vue.ref('');
+    const categories = Vue.computed(() => [...new Set(itemsStore.items.map((item) => item.category))].sort());
     const filteredItems = Vue.computed(() => {
       const query = searchText.value.trim().toLowerCase();
-      return itemsStore.items.filter((item) =>
-        [item.name, item.description, item.category].some((value) => value.toLowerCase().includes(query))
-      );
+      return itemsStore.items.filter((item) => {
+        const matchesText = [item.name, item.description, item.category].some((value) => value.toLowerCase().includes(query));
+        const matchesCategory = !selectedCategory.value || item.category === selectedCategory.value;
+        return matchesText && matchesCategory;
+      });
     });
-    return { itemsStore, searchText, filteredItems };
+    return { itemsStore, searchText, selectedCategory, categories, filteredItems };
   },
   template: /* html */ `
     <section class="container py-4">
@@ -19,10 +23,19 @@ export default {
       </div>
       <p>Choose a topic to see warning signs and practical next steps.</p>
 
-      <div class="mb-4">
+      <div class="row g-3 mb-4">
+        <div class="col-12 col-md-8">
         <label for="topic-search" class="form-label">Search topics</label>
         <input id="topic-search" type="search" class="form-control" v-model="searchText"
           placeholder="Search a topic, description, or category" />
+        </div>
+        <div class="col-12 col-md-4">
+          <label for="topic-category" class="form-label">Category</label>
+          <select id="topic-category" class="form-select" v-model="selectedCategory">
+            <option value="">All</option>
+            <option v-for="category in categories" :key="category" :value="category">{{ category }}</option>
+          </select>
+        </div>
       </div>
 
       <div v-if="itemsStore.isLoading" class="alert alert-secondary" role="status">
