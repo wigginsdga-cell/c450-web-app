@@ -36,6 +36,17 @@ const app = Vue.createApp({
       items: [],
       isLoading: true,
       error: '',
+      pinnedIds: [],
+      isPinned(id) {
+        return this.pinnedIds.includes(id);
+      },
+      togglePin(id) {
+        if (this.isPinned(id)) {
+          this.pinnedIds = this.pinnedIds.filter((pinnedId) => pinnedId !== id);
+        } else {
+          this.pinnedIds.push(id);
+        }
+      },
     });
 
     fetch('items-template.csv')
