@@ -2,15 +2,28 @@ export default {
   name: 'collection-page-component',
   setup() {
     const itemsStore = Vue.inject('itemsStore');
-    return { itemsStore };
+    const searchText = Vue.ref('');
+    const filteredItems = Vue.computed(() => {
+      const query = searchText.value.trim().toLowerCase();
+      return itemsStore.items.filter((item) =>
+        [item.name, item.description, item.category].some((value) => value.toLowerCase().includes(query))
+      );
+    });
+    return { itemsStore, searchText, filteredItems };
   },
   template: /* html */ `
     <section class="container py-4">
       <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
         <h1 class="mb-0">Security Topics</h1>
-        <span class="text-muted">{{ itemsStore.items.length }} topics</span>
+        <span class="text-muted" role="status">{{ filteredItems.length }} topics</span>
       </div>
       <p>Choose a topic to see warning signs and practical next steps.</p>
+
+      <div class="mb-4">
+        <label for="topic-search" class="form-label">Search topics</label>
+        <input id="topic-search" type="search" class="form-control" v-model="searchText"
+          placeholder="Search a topic, description, or category" />
+      </div>
 
       <div v-if="itemsStore.isLoading" class="alert alert-secondary" role="status">
         Loading security topics...
@@ -24,7 +37,7 @@ export default {
         <router-link to="/">Return Home</router-link>
       </div>
       <div v-else class="row g-3">
-        <div class="col-12 col-md-6 col-lg-4" v-for="item in itemsStore.items" :key="item.id">
+        <div class="col-12 col-md-6 col-lg-4" v-for="item in filteredItems" :key="item.id">
           <article class="card h-100">
             <img v-if="item.imageUrl" :src="item.imageUrl" :alt="item.name + ' topic illustration'"
               class="card-img-top collection-card-image object-fit-cover" />
