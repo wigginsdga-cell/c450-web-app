@@ -107,3 +107,7 @@ Preflight: R11-R13/R23-R24; collection tasks complete. Local DOM checks passed f
 ## T25 — Guidance, pins, and sources (browser source check pending)
 
 Preflight: R15-R17/R21; guidance and pin implementation complete. All five guides displayed their own name, ordered actions, source name, and exact source URL. Local tests passed for Pin/Unpin, a fresh application restoring saved IDs, blocked storage, and card labels. Source articles were checked through web retrieval. New-tab attributes were checked, but activating the link in the finished app has not been verified in a browser; T25 stays open. Lesson: matching a source URL is different from testing its interaction.
+
+## T26 — Keyboard and viewport acceptance (pending)
+
+Preflight: R22/R25; T20/T21 remain open, so this gate cannot be marked complete. Label relationships, semantic controls, focus styles, contrast calculations, and responsive rules were reviewed. The browser environment blocked both localhost access and local-file previews. No screenshot, keyboard-only browser pass, or measured 375px layout result is claimed. Complete the browser checklist after opening the app locally or publishing it to GitHub Pages.
