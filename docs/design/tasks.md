@@ -102,25 +102,25 @@ Tasks are ordered so each stage builds on the previous one. A task is complete o
 ## Phase 5 — Topic Guidance Detail
 
 ### T15 — Build Guidance Sections
-- [ ] **Requirements:** R15
+- [x] **Requirements:** R15
 - **Files:** `components/item-detail-page-component.js`
 - **Work:** Render topic name, category, overview, warning signs, What to do now, prevention tips, and trusted source using the parsed model.
 - **Done when:** A complete topic shows every required section and immediate actions are clearly separated from prevention tips.
 
 ### T16 — Add Pin / Unpin to Detail
-- [ ] **Requirements:** R16, R17
+- [x] **Requirements:** R16, R17
 - **Files:** `components/item-detail-page-component.js`
 - **Work:** Add a text-labeled Pin / Pinned / Unpin control using shared state and explain that pinning only saves guidance for later.
 - **Done when:** Pin state updates immediately, persists when supported, and never implies the threat was fixed.
 
 ### T17 — Add Safe Trusted-Source Link
-- [ ] **Requirements:** R21
+- [x] **Requirements:** R21
 - **Files:** `components/item-detail-page-component.js`
 - **Work:** Show the source name and URL and open it in a new tab using safe external-link attributes.
 - **Done when:** The intended source opens in a new tab and CyberGuide remains open.
 
 ### T18 — Improve Missing Topic Recovery
-- [ ] **Requirements:** R20
+- [x] **Requirements:** R20
 - **Files:** `components/item-detail-page-component.js`
 - **Work:** Change generic Item not found wording to Topic not found and provide a link back to Security Topics.
 - **Done when:** An invalid ID does not substitute another topic and the user has an obvious recovery action.
@@ -128,7 +128,7 @@ Tasks are ordered so each stage builds on the previous one. A task is complete o
 ## Phase 6 — Visual Design, Accessibility, and Responsive Behavior
 
 ### T19 — Apply CyberGuide Visual Theme
-- [ ] **Requirements:** R25
+- [x] **Requirements:** R25
 - **Files:** `style.css` and component classes as needed
 - **Work:** Use a calm light background, dark navy/charcoal text, blue primary actions, and restrained amber/red warning accents.
 - **Done when:** Main views look like one application rather than a partly customized starter.
@@ -148,7 +148,7 @@ Tasks are ordered so each stage builds on the previous one. A task is complete o
 ## Phase 7 — Acceptance Test Pass
 
 ### T22 — Run Navigation and Core-View Checks
-- [ ] **Requirements:** R1-R5, R10, R18, R20
+- [x] **Requirements:** R1-R5, R10, R18, R20
 - **Work:** Run the corresponding acceptance checks from `specification.md`.
 - **Done when:** Every listed check passes or the related implementation task is reopened.
 

@@ -59,3 +59,39 @@ Preflight: R16/R17; ADR-04; T04/T05 and T12 complete. Changes: saved cards displ
 ## T14 — verify search input stays plain text
 
 Preflight: R24; ADR-05; T10-T13 complete. No extra feature was needed. Check: a query containing quotation marks, an ampersand, and an image-like HTML string stayed in the input and created no image element. Source review found no v-html or innerHTML use. Manual check: enter those characters and confirm the page remains intact. Lesson: normal Vue text bindings avoid HTML assembly from user input.
+
+## T15 — build the topic guidance sections
+
+Preflight: R15; ADR-03/06; parsed lists and T14 complete. Changes: all five guidance sections render from the CSV, with numbered immediate actions before prevention. Check: Phishing displayed every required heading, overview, list, and source field in the local DOM test. Manual check: read each of the five guides and compare the section order with the specification. Lesson: the same component can display every topic when the data fields are consistent.
+
+## T16 — connect detail pin controls to saved state
+
+Preflight: R16/R17; ADR-04; T04/T05/T13/T15 complete. Changes: Pin topic and Unpin topic use shared state, Pinned appears as text, and a short explanation states what pinning means. Storage problems appear near the control. Check: clicking the rendered controls updated state both ways. Manual check: pin, return to collection, reload, and unpin. Lesson: a saved label should never suggest that a threat was repaired.
+
+## T17 — open trusted sources safely in a new tab
+
+Preflight: R21; ADR-02; T01 source checks and T15 complete. Changes: validated HTTPS links use target=_blank with noopener/noreferrer and tell users a new tab will open. Check: the rendered link matched the intended FTC URL and attributes. Manual check still needed: activate the link and confirm FTC opens while CyberGuide stays available (T25). Lesson: link behavior and source attribution should both be explicit.
+
+## T18 — recover from an unknown topic address
+
+Preflight: R20; ADR-06; T17 complete. Changes: an unknown ID shows Topic not found and a collection link. Check: /items/not-a-topic displayed the recovery message without substituting Phishing. Manual check: enter an invalid topic ID in the address bar and use Browse Security Topics. Lesson: a wrong address should have an obvious way back.
+
+## T19 — apply the simple CyberGuide visual theme
+
+Preflight: R25; ADR-01/06; T18 and Design System v1.0 complete. Changes: shared colors, type sizes, card borders, button rules, and a distinct immediate-action section. Checks: palette contrast calculations passed for normal text and control boundaries (blue/white 5.84:1; muted/background 7.76:1). All main views use the same stylesheet. Browser visual inspection remains pending in T21/T26. Manual check: compare Home, collection, detail, and About side by side. Lesson: a few shared rules are enough to keep the starter consistent.
+
+## T20 — Labels, alt text, and keyboard focus (browser check pending)
+
+Preflight: R9/R22; ADR-06; controls from T06-T18 are implemented. Added a skip link and visible focus outlines. Search/select labels match their field IDs; links/buttons have text; optional images have topic-specific alt text. Source review completed. The cloud browser rejects local app URLs, so keyboard-only operation has not been verified in a real browser. Keep T20 unchecked until the manual checklist is completed. Lesson: source review cannot replace interacting with the page.
+
+## T21 — Phone layout (browser check pending)
+
+Preflight: R25; ADR-01/06; T19 styling is implemented; T20 keyboard verification remains open. Bootstrap columns stack on phones, navigation can wrap, source URLs can break, and detail padding reduces at narrow widths. These rules were reviewed in source. A real 375px visual check has not been possible in this environment, so T21 remains unchecked. Manual check: open all four views at 375px and look for clipped text, overlapping controls, and horizontal scrolling. Lesson: responsive classes are a starting point, not evidence of a passed viewport test.
+
+### T20 refinement — Skip link and hash routes
+
+Review found that a normal `#main-content` jump could be mistaken for a Vue route. The link now prevents that navigation and focuses the main region through the root component. A local DOM check confirmed that activating it focuses main content while preserving the current route. Real keyboard traversal remains pending.
+
+## T22 — verify navigation and core views in the local DOM
+
+Preflight: R1-R5/R10/R18/R20; all required routes/views are implemented. Checks: activated every Home shortcut and navigation link in the running Vue DOM, confirmed each destination and its heading, inspected About limits, and tested an invalid ID. These automated functional checks passed; they are not a claim of a human browser review. Manual steps are retained in the final checklist. Lesson: test the link action as well as its written URL.
