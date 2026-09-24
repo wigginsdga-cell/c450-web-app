@@ -1,19 +1,12 @@
 export default {
   name: 'navbar-component',
   template: /* html */ `
-    <nav class="navbar sticky-top bg-white border-bottom px-3">
-      <span class="navbar-brand mb-0 h1"><i class="bi bi-bootstrap-fill me-2"></i>C450 Web App</span>
-
-      <div class="ms-auto d-flex gap-2">
-        <router-link class="btn btn-outline-primary btn-sm" to="/">
-          <i class="bi bi-house me-1"></i>Home
-        </router-link>
-        <router-link class="btn btn-outline-primary btn-sm d-flex align-items-center" to="/items">
-          <i class="bi bi-card-list me-1"></i>Items
-        </router-link>
-        <router-link class="btn btn-outline-primary btn-sm" to="/about">
-          <i class="bi bi-info-circle me-1"></i>About
-        </router-link>
+    <nav class="navbar bg-white border-bottom px-3 gap-3" aria-label="Main navigation">
+      <router-link to="/" class="navbar-brand fw-bold mb-0">CyberGuide</router-link>
+      <div class="d-flex flex-wrap gap-2">
+        <router-link class="btn btn-outline-primary" to="/">Home</router-link>
+        <router-link class="btn btn-outline-primary" to="/items">Security Topics</router-link>
+        <router-link class="btn btn-outline-primary" to="/about">About</router-link>
       </div>
     </nav>
   `,
