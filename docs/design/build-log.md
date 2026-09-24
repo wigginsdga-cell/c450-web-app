@@ -95,3 +95,7 @@ Review found that a normal `#main-content` jump could be mistaken for a Vue rout
 ## T22 — verify navigation and core views in the local DOM
 
 Preflight: R1-R5/R10/R18/R20; all required routes/views are implemented. Checks: activated every Home shortcut and navigation link in the running Vue DOM, confirmed each destination and its heading, inspected About limits, and tested an invalid ID. These automated functional checks passed; they are not a claim of a human browser review. Manual steps are retained in the final checklist. Lesson: test the link action as well as its written URL.
+
+## T23 — verify data display and recovery states in the local DOM
+
+Preflight: R6-R9/R14/R19; data/error/collection tasks complete. Checks: five CSV records produced five cards; a fixture with one optional image provided its alt text while other cards remained usable; empty data showed recovery text; delayed, unavailable, malformed, and missing-header CSV cases were handled. All local DOM checks passed. The optional image fixture was test-only and is not in the shipped CSV. Manual browser review remains in the final checklist. Lesson: test failure states separately from valid data.

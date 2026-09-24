@@ -153,7 +153,7 @@ Tasks are ordered so each stage builds on the previous one. A task is complete o
 - **Done when:** Every listed check passes or the related implementation task is reopened.
 
 ### T23 — Run Data, Collection, and Recovery Checks
-- [ ] **Requirements:** R6-R9, R14, R19
+- [x] **Requirements:** R6-R9, R14, R19
 - **Work:** Test valid data, five cards, missing images, loading, failed CSV, parse failure, and no-results recovery.
 - **Done when:** Each acceptance condition passes.
 
