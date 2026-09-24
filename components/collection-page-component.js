@@ -31,9 +31,9 @@ export default {
 
       <div class="row g-3 mb-4">
         <div class="col-12 col-md-6">
-        <label for="topic-search" class="form-label">Search topics</label>
-        <input ref="searchField" id="topic-search" type="search" class="form-control" v-model="searchText"
-          placeholder="Search a topic, description, or category" />
+          <label for="topic-search" class="form-label">Search topics</label>
+          <input ref="searchField" id="topic-search" type="search" class="form-control" v-model="searchText"
+            placeholder="Search a topic, description, or category" />
         </div>
         <div class="col-12 col-md-4">
           <label for="topic-category" class="form-label">Category</label>
