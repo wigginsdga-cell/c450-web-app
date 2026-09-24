@@ -49,9 +49,13 @@ const app = Vue.createApp({
         Papa.parse(csvText, {
           header: true,
           skipEmptyLines: true,
-          complete: ({ data, errors }) => {
-            if (errors.length > 0) {
-              itemsStore.error = 'There was a problem reading the CSV data.';
+          complete: ({ data, errors, meta }) => {
+            const requiredFields = ['id', 'name', 'description', 'category', 'warning_signs', 'recommended_actions', 'prevention_tips', 'source_name', 'source_url'];
+            const hasFields = requiredFields.every((field) => meta.fields?.includes(field));
+            const ids = data.map((row) => String(row.id || '').trim());
+            const validIds = ids.every(Boolean) && new Set(ids).size === ids.length;
+            if (errors.length > 0 || !hasFields || !validIds) {
+              itemsStore.error = 'The topic guides could not be read. Return Home and try again later.';
               itemsStore.items = [];
             } else {
               itemsStore.items = data.map((row) => ({
@@ -71,14 +75,14 @@ const app = Vue.createApp({
             itemsStore.isLoading = false;
           },
           error: () => {
-            itemsStore.error = 'There was a problem parsing CSV data.';
+            itemsStore.error = 'The topic guides could not be read. Return Home and try again later.';
             itemsStore.items = [];
             itemsStore.isLoading = false;
           },
         });
       })
       .catch(() => {
-        itemsStore.error = 'There was a problem loading data.';
+        itemsStore.error = 'The topic guides could not load. Check your connection, then try again.';
         itemsStore.items = [];
         itemsStore.isLoading = false;
       });
