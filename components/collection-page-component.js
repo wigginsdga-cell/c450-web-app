@@ -17,11 +17,12 @@ export default {
       <p class="text-muted">Browse a simple dataset loaded from a CSV file.</p>
 
       <div v-if="itemsStore.isLoading" class="alert alert-secondary" role="status">
-        Loading items...
+        Loading security topics...
       </div>
 
       <div v-else-if="itemsStore.error" class="alert alert-danger" role="alert">
-        {{ itemsStore.error }}
+        <p class="mb-2">{{ itemsStore.error }}</p>
+        <router-link to="/">Return Home</router-link>
       </div>
 
       <div v-else-if="itemsStore.items.length === 0" class="alert alert-warning" role="alert">

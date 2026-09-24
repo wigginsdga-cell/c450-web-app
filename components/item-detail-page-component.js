@@ -18,11 +18,12 @@ export default {
       <router-link to="/items" class="btn btn-link ps-0 mb-3">← Back to collection</router-link>
 
       <div v-if="itemsStore.isLoading" class="alert alert-secondary" role="status">
-        Loading item details...
+        Loading topic guidance...
       </div>
 
       <div v-else-if="itemsStore.error" class="alert alert-danger" role="alert">
-        {{ itemsStore.error }}
+        <p class="mb-2">{{ itemsStore.error }}</p>
+        <router-link to="/">Return Home</router-link>
       </div>
 
       <div v-else-if="!selectedItem" class="alert alert-warning" role="alert">
