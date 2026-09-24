@@ -4,7 +4,15 @@ export default {
     const itemsStore = Vue.inject('itemsStore');
     const route = VueRouter.useRoute();
     const selectedItem = Vue.computed(() => itemsStore.items.find((item) => item.id === route.params.id));
-    return { itemsStore, selectedItem };
+    const sourceUrl = Vue.computed(() => {
+      try {
+        const url = new URL(selectedItem.value?.sourceUrl);
+        return url.protocol === 'https:' ? url.href : '';
+      } catch {
+        return '';
+      }
+    });
+    return { itemsStore, selectedItem, sourceUrl };
   },
   template: /* html */ `
     <section class="container py-4">
@@ -53,7 +61,11 @@ export default {
           <section class="mt-4">
             <h2>Trusted source</h2>
             <p>{{ selectedItem.sourceName }}</p>
-            <a :href="selectedItem.sourceUrl" class="source-link">{{ selectedItem.sourceUrl }}</a>
+            <p v-if="sourceUrl" class="mb-0">
+              <a :href="sourceUrl" class="source-link" target="_blank" rel="noopener noreferrer">{{ selectedItem.sourceUrl }}</a>
+              <span class="d-block small text-muted mt-1">Opens in a new tab.</span>
+            </p>
+            <p v-else>Source link unavailable.</p>
           </section>
         </div>
       </article>
