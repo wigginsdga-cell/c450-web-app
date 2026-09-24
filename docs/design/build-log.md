@@ -103,3 +103,7 @@ Preflight: R6-R9/R14/R19; data/error/collection tasks complete. Checks: five CSV
 ## T24 — Search, filter, and safety checks (browser typing check pending)
 
 Preflight: R11-R13/R23-R24; collection tasks complete. Local DOM checks passed for matching all three fields, capitalization, combined filters, Clear, unmatched queries, and special characters. Character-by-character DOM editing retained the same input node, focused element, and an edited caret position. This does not replace physical keyboard interaction in a browser; T24 stays open for that check. No search query is rendered as HTML.
+
+## T25 — Guidance, pins, and sources (browser source check pending)
+
+Preflight: R15-R17/R21; guidance and pin implementation complete. All five guides displayed their own name, ordered actions, source name, and exact source URL. Local tests passed for Pin/Unpin, a fresh application restoring saved IDs, blocked storage, and card labels. Source articles were checked through web retrieval. New-tab attributes were checked, but activating the link in the finished app has not been verified in a browser; T25 stays open. Lesson: matching a source URL is different from testing its interaction.
