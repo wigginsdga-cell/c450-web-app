@@ -25,7 +25,7 @@ export default {
     <section class="container py-4">
       <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
         <h1 class="mb-0">Security Topics</h1>
-        <span class="text-muted" role="status">{{ filteredItems.length }} topics</span>
+        <span class="text-muted" role="status">{{ filteredItems.length }} {{ filteredItems.length === 1 ? 'topic' : 'topics' }}</span>
       </div>
       <p>Choose a topic to see warning signs and practical next steps.</p>
 
