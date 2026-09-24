@@ -111,3 +111,11 @@ Preflight: R15-R17/R21; guidance and pin implementation complete. All five guide
 ## T26 — Keyboard and viewport acceptance (pending)
 
 Preflight: R22/R25; T20/T21 remain open, so this gate cannot be marked complete. Label relationships, semantic controls, focus styles, contrast calculations, and responsive rules were reviewed. The browser environment blocked both localhost access and local-file previews. No screenshot, keyboard-only browser pass, or measured 375px layout result is claimed. Complete the browser checklist after opening the app locally or publishing it to GitHub Pages.
+
+## T27 — remove the remaining starter title and document the app
+
+Preflight: all requirements reviewed; T20/T21/T24/T25/T26 browser checks remain open and are not hidden by this sweep. Changes: replaced the remaining starter browser title and README with CyberGuide information and run instructions. Check: visible templates no longer contain generic business/Location/Collection wording; internal component names remain unchanged to preserve the starter structure. No login, backend, scanner, remediation, or AI-advice feature was added. Lesson: the page title is easy to miss when reviewing only the page body.
+
+### T20 refinement — Focus rule priority
+
+Final source review adjusted the focus selector so it can override Bootstrap control focus rules. The intended 3px outline now has adequate selector priority for links, buttons, inputs, and selects. This is a code correction; the keyboard/visual task remains open until checked in a browser.

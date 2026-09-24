@@ -68,7 +68,7 @@ Three people returned evaluation feedback. Brittany and Bryant explicitly report
 
 **Key data**
 
-Each topic uses the following fields. The exact serialization of multi-step lists in CSV remains an implementation decision to resolve in Section 7.
+Each topic uses the following fields. The list fields use pipe-separated values, as documented in plan.md (ADR-03).
 
 | Field | Meaning |
 |-------|---------|
@@ -207,10 +207,10 @@ An open question is not approval to guess silently or add a feature beyond scope
 
 | Question | Owner | Status |
 |----------|-------|--------|
-| How will multi-step lists be serialized and parsed in the CSV? | DeLorean Wiggins | Open — select and document one format before converting the topic dataset. |
-| Which exact source article supports each initial topic, and when will those source links be checked? | DeLorean Wiggins | Open — complete the source mapping before releasing the full application. |
+| How will multi-step lists be serialized and parsed in the CSV? | DeLorean Wiggins | Resolved — pipe-separated values, trimmed and converted to arrays; see plan.md ADR-03. |
+| Which exact source article supports each initial topic, and when will those source links be checked? | DeLorean Wiggins | Resolved for initial content — FTC articles mapped in items-template.csv and checked September 24, 2026. |
 | What numeric page-load target and test device/network should be used? | DeLorean Wiggins | Open — no benchmark or measured result is claimed. |
-| What should users see if browser storage is blocked or unavailable? | DeLorean Wiggins | Open — define the fallback before completing persistence testing. |
+| What should users see if browser storage is blocked or unavailable? | DeLorean Wiggins | Resolved — keep pins in page memory and show a short message when browser storage cannot be used; see plan.md and T05. |
 | Should prominent Home blocks act as navigation? | DeLorean Wiggins | Resolved in this revision — Phishing and Account Compromise open their guides; Prevention opens the collection. |
 | Should Pin fix threats or perform automatic security actions? | DeLorean Wiggins | Resolved — Pin saves guidance only; automated remediation remains out of scope. |
 | Have the owner and reviewer formally approved this revision? | DeLorean Wiggins / course reviewer | Open — approval is recorded separately in Section 9, not inferred from tester feedback. |

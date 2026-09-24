@@ -173,7 +173,7 @@ Tasks are ordered so each stage builds on the previous one. A task is complete o
 - **Done when:** Controls remain operable, focus is visible, and core pages do not clip or require horizontal scrolling.
 
 ### T27 — Final Starter-Content and Scope Sweep
-- [ ] **Requirements:** all
+- [x] **Requirements:** all
 - **Files:** entire front end
 - **Work:** Search for leftover generic terms such as Web App Starter, Collection, Items, Location, or local-business sample content. Confirm no backend, login, scanning, remediation, or AI-advice feature was added.
 - **Done when:** Visible content consistently describes CyberGuide and the completed front end remains inside the approved scope.
