@@ -3,6 +3,12 @@ export default {
   setup() {
     const itemsStore = Vue.inject('itemsStore');
     const searchText = Vue.ref('');
+    const searchField = Vue.ref(null);
+    function clearFilters() {
+      searchText.value = '';
+      selectedCategory.value = '';
+      searchField.value?.focus();
+    }
     const selectedCategory = Vue.ref('');
     const categories = Vue.computed(() => [...new Set(itemsStore.items.map((item) => item.category))].sort());
     const filteredItems = Vue.computed(() => {
@@ -13,7 +19,7 @@ export default {
         return matchesText && matchesCategory;
       });
     });
-    return { itemsStore, searchText, selectedCategory, categories, filteredItems };
+    return { itemsStore, searchText, searchField, selectedCategory, categories, filteredItems, clearFilters };
   },
   template: /* html */ `
     <section class="container py-4">
@@ -24,9 +30,9 @@ export default {
       <p>Choose a topic to see warning signs and practical next steps.</p>
 
       <div class="row g-3 mb-4">
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-md-6">
         <label for="topic-search" class="form-label">Search topics</label>
-        <input id="topic-search" type="search" class="form-control" v-model="searchText"
+        <input ref="searchField" id="topic-search" type="search" class="form-control" v-model="searchText"
           placeholder="Search a topic, description, or category" />
         </div>
         <div class="col-12 col-md-4">
@@ -35,6 +41,9 @@ export default {
             <option value="">All</option>
             <option v-for="category in categories" :key="category" :value="category">{{ category }}</option>
           </select>
+        </div>
+        <div class="col-12 col-md-2 d-flex align-items-end">
+          <button type="button" class="btn btn-outline-primary w-100" @click="clearFilters">Clear</button>
         </div>
       </div>
 
@@ -48,6 +57,10 @@ export default {
       <div v-else-if="itemsStore.items.length === 0" class="alert alert-warning" role="status">
         <p>No topic guides are available right now.</p>
         <router-link to="/">Return Home</router-link>
+      </div>
+      <div v-else-if="filteredItems.length === 0" class="alert alert-secondary" role="status">
+        <p>No topics match your search. Clear the filters to try again.</p>
+        <button type="button" class="btn btn-outline-primary" @click="clearFilters">Clear filters</button>
       </div>
       <div v-else class="row g-3">
         <div class="col-12 col-md-6 col-lg-4" v-for="item in filteredItems" :key="item.id">
