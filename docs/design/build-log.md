@@ -99,3 +99,7 @@ Preflight: R1-R5/R10/R18/R20; all required routes/views are implemented. Checks:
 ## T23 — verify data display and recovery states in the local DOM
 
 Preflight: R6-R9/R14/R19; data/error/collection tasks complete. Checks: five CSV records produced five cards; a fixture with one optional image provided its alt text while other cards remained usable; empty data showed recovery text; delayed, unavailable, malformed, and missing-header CSV cases were handled. All local DOM checks passed. The optional image fixture was test-only and is not in the shipped CSV. Manual browser review remains in the final checklist. Lesson: test failure states separately from valid data.
+
+## T24 — Search, filter, and safety checks (browser typing check pending)
+
+Preflight: R11-R13/R23-R24; collection tasks complete. Local DOM checks passed for matching all three fields, capitalization, combined filters, Clear, unmatched queries, and special characters. Character-by-character DOM editing retained the same input node, focused element, and an edited caret position. This does not replace physical keyboard interaction in a browser; T24 stays open for that check. No search query is rendered as HTML.
