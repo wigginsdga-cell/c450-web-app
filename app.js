@@ -28,6 +28,8 @@ const router = VueRouter.createRouter({
   routes,
 });
 
+const splitList = (value) => String(value || '').split('|').map((item) => item.trim()).filter(Boolean);
+
 const app = Vue.createApp({
   setup() {
     const itemsStore = Vue.reactive({
@@ -58,7 +60,11 @@ const app = Vue.createApp({
                 description: String(row.description || '').trim(),
                 category: String(row.category || '').trim(),
                 imageUrl: String(row.image_url || '').trim(),
-                location: String(row.location || '').trim(),
+                warningSigns: splitList(row.warning_signs),
+                recommendedActions: splitList(row.recommended_actions),
+                preventionTips: splitList(row.prevention_tips),
+                sourceName: String(row.source_name || '').trim(),
+                sourceUrl: String(row.source_url || '').trim(),
               }));
               itemsStore.error = '';
             }
