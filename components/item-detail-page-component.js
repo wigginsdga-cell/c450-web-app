@@ -25,7 +25,9 @@ export default {
         <router-link to="/">Return Home</router-link>
       </div>
       <div v-else-if="!selectedItem" class="alert alert-warning" role="alert">
-        Item not found.
+        <h1 class="h4">Topic not found</h1>
+        <p>That topic is not available.</p>
+        <router-link to="/items">Browse Security Topics</router-link>
       </div>
       <article v-else class="card">
         <img v-if="selectedItem.imageUrl" :src="selectedItem.imageUrl"
